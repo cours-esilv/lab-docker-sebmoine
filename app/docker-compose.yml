@@ -1,0 +1,21 @@
+version: '3'
+services:
+  backend:
+    image: sebmoine/app-mlops:latest
+    ports:
+      - 8080:8080
+    environment:
+      - CURRENT_ENVIRONMENT=production
+    volumes:
+      - backend-data:/app/data
+
+  frontend:
+    image: sebmoine/front-mlops:latest
+    ports:
+      - 80:80
+    environment:
+      - WS_BACK_URL=http://localhost:8080
+
+volumes:
+  backend-data:
+    name: backend-data-volume

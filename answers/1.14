@@ -1,0 +1,6 @@
+docker stop app
+docker stop front
+docker rm app
+docker rm front
+docker rmi sebmoine/app-mlops
+docker rmi sebmoine/front-mlops
